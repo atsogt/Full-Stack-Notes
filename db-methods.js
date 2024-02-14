@@ -34,3 +34,19 @@ db.collection("users")
   .toArray((error, result) => {
     console.log(result);
   });
+
+//UPDATE Operation to update age in collection field
+//there are other update operations in mongodb like $inc to increment
+db.collection("users")
+  .updateOne(
+    {
+      _id: new ObjectId("65cb9d40a7fc9fca5593a934"),
+    },
+    {
+      $set: {
+        age: 30,
+      },
+    }
+  )
+  .then((result) => console.log(result))
+  .catch((error) => console.log(error));
