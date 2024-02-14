@@ -50,3 +50,17 @@ db.collection("users")
   )
   .then((result) => console.log(result))
   .catch((error) => console.log(error));
+
+//DELETE Operation to delete a tuple
+db.collection("users")
+  .deleteOne({
+    _id: new ObjectId("65cd0baec0299cb958ddbc22"),
+  })
+  .then((result) => console.log("Deleted Content", result))
+  .catch((error) => console.log(error));
+
+//DELETE Operation to delete a multiple tuple
+db.collection("users")
+  .deleteMany({ age: -100 })
+  .then((result) => console.log("Deleted Contents", result))
+  .catch((error) => console.log("Error: ", error));
